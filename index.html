@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Werkstuk - Lyricsovh API</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--Referentie Javascript file-->
+    <script type="module" src="./index.js"></script>
+    <script src="clearInputfields.js"></script>
+    <!--Referentie CSS file-->
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <!--Referentie fonts-->
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300&display=swap" rel="stylesheet">
+    <!--Referentie Favicon file-->
+    <link rel="icon" href="/faviconapi" type="image/png" sizes="16x16">
+    <!--Referenties Firebase-->
+    <script src="https://www.gstatic.com/firebasejs/7.8.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.8.2/firebase-firestore.js"></script>
+</head>
+
+<body>
+
+    <button onclick="topFunction()" id="myBtn" title="Go to top"><img src="arrowupwit-icon.png"
+            style="width: 48px; height: 48px; margin: 0 auto;"></button>
+
+    <script>
+        //Get the button
+        var mybutton = document.getElementById("myBtn");
+
+        // When the user scrolls down 20px from the top of the document, show the button
+        window.onscroll = function () {
+            scrollFunction()
+        };
+
+        function scrollFunction() {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                mybutton.style.display = "block";
+            } else {
+                mybutton.style.display = "none";
+            }
+        }
+
+        // When the user clicks on the button, scroll to the top of the document
+        function topFunction() {
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+        }
+    </script>
+
+    <ul class="menu">
+        <li class="menuitems"><a class="active" href="index.html">Home</a></li>
+        <li class="menuitems"><a href="about.html">About</a></li>
+    </ul>
+
+    <div id="searchbox">
+        <h1 class="titlebox">Lyrics Search</h1>
+        <form id="form">
+            <label for="search">
+                Name artist
+            </label>
+            <input type="search" id="searchArtist" autofocus placeholder="Example: Coldplay" required />
+            <label for="search">
+                Title song
+            </label>
+            <input type="search" id="searchTitle" placeholder="Example: Clocks" required />
+            <input type="submit" id="submitknop" value="Get lyrics" />
+            <input type="button" id="clear" value="Clear fields" onclick="clearBoxes()">
+        </form>
+    </div>
+    <div id="lyricsbox">
+        <h1 class="titlebox">Lyrics</h1>
+        <div id="lyricsResult">
+
+        </div>
+    </div>
+    <div id="historybox">
+        <h1 class="titlebox">Search History</h1>
+        <ul>
+            <li id="searchList"></li>
+        </ul>
+    </div>
+    <footer>
+        <p class="trademark">&copy 2020 - Michalis Van Steen</p>
+        <p>Based on Lyrics.ovh</p>
+    </footer>
+</body>
+
+</html>
